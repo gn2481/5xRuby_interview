@@ -1,0 +1,38 @@
+<div class="col-4 m-auto text-center">
+  <h1>會員註冊</h1>
+
+
+<% if @user.errors.any? %>
+  <ul>
+  <% @user.errors.full_messages do |msg| %>
+  <li>
+    <%= msg %>
+  </li>
+  <% end %>
+  </ul>
+<% end %>
+
+  <%= form_for(@user) do |form| %>
+    <div class="fields">
+      <%= form.label :nickname, "暱稱" %>
+      <%= form.text_field :nickname %>
+    </div>
+  
+    <div class="fields">
+      <%= form.label :email, "信箱" %>
+      <%= form.email_field :email %>
+    </div>
+
+    <div class="fields">
+      <%= form.label :password, "密碼" %>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="fields">
+      <%= form.label :comfirmation, "再次輸入密碼" %>
+      <%= form.password_field :comfirmation %>
+    </div>
+
+    <%= form.submit "註冊帳號" %>
+  <% end %>
+</div>
