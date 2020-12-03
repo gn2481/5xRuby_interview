@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      sign_in(@user)
+      sign_in_user(@user)
       redirect_to root_path, notice: '會員註冊成功'
     else
       render :register
