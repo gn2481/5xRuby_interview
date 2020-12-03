@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def sign_in
-    user = User.login(user_params) # 認證
+    user = User.login(user_login_params) # 認證
 
     if user
       sign_in_user(user)

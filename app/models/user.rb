@@ -5,8 +5,8 @@ class User < ApplicationRecord
   before_create :encrypt_password
 
   def self.login(options)
-    if options[:account] && options[:password]
-      find_by(account: options[:account],
+    if options[:email] && options[:password]
+      find_by(email: options[:email],
               password: Digest::SHA1.hexdigest("yu" + options[:password] +"an"))
     end
   end
